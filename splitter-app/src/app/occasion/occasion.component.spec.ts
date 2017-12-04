@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SplitListComponent } from './split-list.component';
+import { OccasionComponent } from './occasion.component';
 
-describe('SplitListComponent', () => {
-  let component: SplitListComponent;
-  let fixture: ComponentFixture<SplitListComponent>;
+describe('OccasionComponent', () => {
+  let component: OccasionComponent;
+  let fixture: ComponentFixture<OccasionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SplitListComponent ]
+      declarations: [ OccasionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SplitListComponent);
+    fixture = TestBed.createComponent(OccasionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

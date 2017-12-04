@@ -6,13 +6,15 @@ import { MaterialModule } from './material.module';
 
 
 import { AppComponent } from './app.component';
-import { SplitListComponent } from './split-list/split-list.component';
+import { OccasionComponent } from './occasion/occasion.component';
+import { OccasionListComponent } from './occasion-list/occasion-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SplitListComponent
+    OccasionComponent,
+    OccasionListComponent
   ],
   imports: [
     BrowserModule,
