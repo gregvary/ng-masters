@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { OccasionComponent } from './occasion/occasion.component';
 import { OccasionListComponent } from './occasion-list/occasion-list.component';
 
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { OccasionListComponent } from './occasion-list/occasion-list.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
