@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body {
+  font-family: Roboto;
+  background-color: #d4d4d4;
+  margin: 0;
+}
+
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
