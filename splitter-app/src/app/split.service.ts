@@ -11,7 +11,7 @@ export class SplitService {
 
   constructor() { }
 
-  split(occ:Occasion){
+  split(occ:Occasion):Transaction[]{
       let personsWithCredit:Person[] = [];
       let personsWithDept:Person[] = [];
 
