@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { OccasionComponent } from './occasion/occasion.component';
 import { OccasionListComponent } from './occasion-list/occasion-list.component';
+import { OccasionDetailComponent } from './occasion-detail/occasion-detail.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     OccasionComponent,
-    OccasionListComponent
+    OccasionListComponent,
+    OccasionDetailComponent
   ],
   imports: [
     BrowserModule,

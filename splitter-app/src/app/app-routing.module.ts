@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OccDetail } from './occasion-detail/occasion-detail.component.ts';
+import { OccasionDetailComponent } from './occasion-detail/occasion-detail.component';
+import { OccasionListComponent } from './occasion-list/occasion-list.component';
+
 
 const routes: Routes = [
-  { path: 'detail/:id', component: OccDetail }
+  { path: '', component: OccasionListComponent, pathMatch: 'full' },
+
+  { path: 'detail/:id', component: OccasionDetailComponent, pathMatch: 'full' }
+  // { path: 'detail', component: OccasionDetailComponent }
 ];
 
 
