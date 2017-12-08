@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OccDetail } from './occasion-detail/occasion-detail.component.ts';
+import { OccDetail } from './occasion-detail/occasion-detail.component';
 
 const routes: Routes = [
   { path: 'detail/:id', component: OccDetail }

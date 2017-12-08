@@ -10,6 +10,7 @@ import { OccasionComponent } from './occasion/occasion.component';
 import { OccasionListComponent } from './occasion-list/occasion-list.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { SplitService } from './split.service';
 
 
 @NgModule({
@@ -25,6 +26,6 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, SplitService]
 })
 export class AppModule { }
