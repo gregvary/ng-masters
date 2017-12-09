@@ -1,6 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-<<<<<<< Updated upstream
-=======
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
@@ -17,4 +15,3 @@ body {
 .mat-select-arrow{
   color:whitesmoke;
 }
->>>>>>> Stashed changes
