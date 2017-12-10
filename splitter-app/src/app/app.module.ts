@@ -11,16 +11,18 @@ import { AppComponent } from './app.component';
 import { OccasionComponent } from './occasion/occasion.component';
 import { OccasionListComponent } from './occasion-list/occasion-list.component';
 import { CurrencyService } from '../services/currency.service';
+import { ConvertcurrencyPipe } from './convertcurrency.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     OccasionComponent,
-    OccasionListComponent
+    OccasionListComponent,
+    ConvertcurrencyPipe
   ],
   imports: [
-    
+
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,

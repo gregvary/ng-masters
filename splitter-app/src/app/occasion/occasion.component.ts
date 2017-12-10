@@ -1,3 +1,4 @@
+
 import { Component, Input, OnInit } from '@angular/core';
 
 import { Occasion } from './occasion';
@@ -11,7 +12,7 @@ export class OccasionComponent implements OnInit {
 
   constructor() {
   }
-
+  flag = "true";
   ngOnInit() {
   }
 

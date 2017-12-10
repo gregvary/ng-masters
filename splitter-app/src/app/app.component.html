@@ -4,9 +4,8 @@
     <mat-toolbar-row>
       <span>Splitter</span>
       <span class="fill-remaining-space"></span>
-      <mat-select [(ngModel)]="selectedItem" [(value)] = "selectedItem" (ngModelChange)="getSelectedValue(selectedItem)" class="select-box" placeholder="{{currencyPlaceholder}}">
-
-        <mat-option class="select-option" *ngFor="let currency of currencies" [value]="currency.value">
+      <mat-select [(ngModel)]="selectedItem" [(value)]="selectedItem" (ngModelChange)="getSelectedValue(selectedItem)" class="select-box" placeholder="{{currencyPlaceholder}}">
+       <mat-option class="select-option" *ngFor="let currency of currencies" [value]="currency.value">
          {{ currency.viewValue }} <img [style.width.px]="16" [style.height.px]="16" [src]="currency.imageUrl"/>
        </mat-option>
        </mat-select>
@@ -15,6 +14,4 @@
     </mat-toolbar-row>
   </mat-toolbar>
 <app-occasion-list></app-occasion-list>
-
-
 </div>

@@ -30,12 +30,10 @@ selectedItem = "EUR";
 
 ngAfterViewInit(){
 
-  window.localStorage.setItem("currency", this.selectedItem);
+  window.localStorage.setItem("currency", this.selectedItem); 
   window.localStorage.setItem("currencyRate", "1");
 
 }
-
-
 
 getSelectedValue(selectedItem){
   console.log('selected currency: ', selectedItem);

@@ -1,8 +1,8 @@
 <mat-card class="occasion-card">
-  <mat-card-header>
+  <mat-card-header >
     <div class="title-wrapper">
       <mat-card-title><b>{{ occasion.name }}</b></mat-card-title>
-      <span class="occasion-card-spending">{{ occasion.totalSpending | currency:'EUR':'symbol' }} </span>
+      <span class="occasion-card-spending" >{{ occasion.totalSpending | convertcurrency }} </span>
       <mat-card-subtitle>{{ occasion.date }}</mat-card-subtitle>
     </div>
   </mat-card-header>
