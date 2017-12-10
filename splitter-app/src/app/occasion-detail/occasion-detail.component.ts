@@ -28,7 +28,7 @@ export class OccasionDetailComponent implements OnInit {
   newItemPayer;
   newItemAmount;
 
-  displayedColumns = ['name', 'payer', 'amount'];
+  displayedColumns = ['name', 'payer', 'amount', 'delete'];
   dataSource;
 
 
@@ -71,6 +71,17 @@ export class OccasionDetailComponent implements OnInit {
     this.dataSource = new MatTableDataSource<Item>(this.items);
 
   }
+
+  deleteItem(item: any): void {
+    let index = this.occasion.items.indexOf(item);
+
+    if (index >= 0) {
+      this.occasion.items.splice(index, 1);
+      this.dataSource = new MatTableDataSource<Item>(this.items);
+
+    }
+  }
+
 
   visible: boolean = true;
   selectable: boolean = true;

@@ -5,7 +5,16 @@ export const OCCASIONS: Occasion[] = [
     id: 1,
     name: 'Chickendinner',
     description: 'The Hound eats every fucking chicken in this room.',
-    participants: [{ name: 'Sandor', credit: 10 }, { name: 'Arya', credit: 10 }],
+    participants: [
+      {
+        name: 'Sandor',
+        credit: 10 
+      },
+      {
+        name: 'Arya',
+        credit: 10
+      }
+    ],
     totalSpending: 15.20,
     items: [
       {
@@ -19,7 +28,13 @@ export const OCCASIONS: Occasion[] = [
         payer: { name: 'Arya', credit: 10 }
       }
     ],
-    transactions: [{ debtor: { name: 'Sandor', credit: 10 }, creditor: { name: 'Arya', credit: 10 }, amount: 20 }],
+    transactions: [
+      {
+        debtor: { name: 'Sandor', credit: 10 },
+        creditor: { name: 'Arya', credit: 10 },
+        amount: 20
+       }
+     ],
     date: '03.05.1014'
   },
   {

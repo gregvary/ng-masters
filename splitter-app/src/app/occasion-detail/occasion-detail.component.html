@@ -52,22 +52,26 @@
           The actual rendered columns are set as a property on the row definition" -->
 
 
-        <!-- Position Column -->
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
           <mat-cell *matCellDef="let item"> {{item.name}} </mat-cell>
         </ng-container>
 
-        <!-- Name Column -->
         <ng-container matColumnDef="payer">
           <mat-header-cell *matHeaderCellDef> Payer </mat-header-cell>
           <mat-cell *matCellDef="let item"> {{item.payer.name}} </mat-cell>
         </ng-container>
 
-        <!-- Weight Column -->
         <ng-container matColumnDef="amount">
           <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
           <mat-cell *matCellDef="let item"> {{item.amount}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+          <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+          <mat-cell *matCellDef="let item" (click)="deleteItem(item)">
+            <mat-icon>cancel</mat-icon>
+          </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
