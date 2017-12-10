@@ -7,8 +7,6 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule, MatToolbarModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
-import {MatChipInputEvent} from '@angular/material';
-import {ENTER, COMMA} from '@angular/cdk/keycodes';
 import {MatInputModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
