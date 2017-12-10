@@ -9,6 +9,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatInputModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -21,7 +23,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
               MatChipsModule,
               MatFormFieldModule,
               MatInputModule,
-              MatIconModule
+              MatIconModule,
+              MatDialogModule
 
             ],
   exports: [  MatButtonModule,
@@ -30,7 +33,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
               MatChipsModule,
               MatFormFieldModule,
               MatInputModule,
-              MatIconModule
+              MatIconModule,
+              MatDialogModule
             ],
 })
 export class MaterialModule { }
