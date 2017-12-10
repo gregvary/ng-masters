@@ -1,6 +1,11 @@
 .fill-remaining-space {
   flex: 1 1 auto;
 }
-.header-logo  {
-  cursor: pointer;
+.select-box{
+  width: 60px;
+  font-size: 15px;
+}
+.mat-option > span > img{
+  width: 20px;
+  height: 20px;
 }

@@ -2,31 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { OccasionComponent } from './occasion/occasion.component';
 import { OccasionListComponent } from './occasion-list/occasion-list.component';
-import { OccasionDetailComponent } from './occasion-detail/occasion-detail.component';
-
-import { AppRoutingModule } from './app-routing.module';
+import { CurrencyService } from '../services/currency.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     OccasionComponent,
-    OccasionListComponent,
-    OccasionDetailComponent
+    OccasionListComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CurrencyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
