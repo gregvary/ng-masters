@@ -12,6 +12,8 @@ import { OccasionDetailComponent } from './occasion-detail/occasion-detail.compo
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { OccasionService } from './occasion.service'
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ OccasionService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

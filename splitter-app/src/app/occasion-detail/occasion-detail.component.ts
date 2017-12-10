@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { Occasion } from '../occasion';
+
 
 @Component({
   selector: 'app-occasion-detail',
@@ -11,5 +14,7 @@ export class OccasionDetailComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() occasion: Occasion;
 
 }

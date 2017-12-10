@@ -6,6 +6,9 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatToolbarModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatInputModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 
@@ -14,13 +17,17 @@ import {MatChipsModule} from '@angular/material/chips';
   imports: [  MatButtonModule,
               MatToolbarModule,
               MatCardModule,
-              MatChipsModule
+              MatChipsModule,
+              MatFormFieldModule,
+              MatInputModule
 
             ],
   exports: [  MatButtonModule,
               MatToolbarModule,
               MatCardModule,
-              MatChipsModule
+              MatChipsModule,
+              MatFormFieldModule,
+              MatInputModule
             ],
 })
 export class MaterialModule { }

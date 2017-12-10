@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { Occasion } from './occasion';
+import { Occasion } from '../occasion';
+import { OccasionService } from '../occasion.service';
 
 @Component({
   selector: 'app-occasion',
@@ -9,10 +10,18 @@ import { Occasion } from './occasion';
 })
 export class OccasionComponent implements OnInit {
 
-  constructor() {
+  occasions: Occasion[];
+
+  constructor(private occasionService: OccasionService) {
+  }
+
+  getOccasions(): void {
+    this.occasionService.getOccasions()
+      .subscribe(occasions => this.occasions = occasions);
   }
 
   ngOnInit() {
+    this.getOccasions();
   }
 
   @Input() occasion: Occasion;
