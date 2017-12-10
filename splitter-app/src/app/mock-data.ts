@@ -8,7 +8,7 @@ export const OCCASIONS: Occasion[] = [
     participants: [{ name: 'Sandor', credit: 10 }, { name: 'Arya', credit: 10 }],
     totalSpending: 15.20,
     items: [ {name: 'Chicken', amount: 15.20, payer: { name: 'Sandor', credit: 10 },{name: 'Another Chicken', amount: 11.20, payer: { name: 'Arya', credit: 10 }  }],
-    transactions: [{debtor: { name: 'Sandor', credit: 10 }, creditor: { name: 'Arya', credit: 10 }, amount: 20}]
+    transactions: [{debtor: { name: 'Sandor', credit: 10 }, creditor: { name: 'Arya', credit: 10 }, amount: 20}],
     date: '03.05.1014'
   },
   {

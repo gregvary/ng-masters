@@ -12,6 +12,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -29,7 +31,8 @@ import {MatListModule} from '@angular/material/list';
               MatIconModule,
               MatDialogModule,
               MatTableModule,
-              MatListModule
+              MatListModule,
+              MatSelectModule
 
             ],
   exports: [  MatButtonModule,
@@ -41,7 +44,8 @@ import {MatListModule} from '@angular/material/list';
               MatIconModule,
               MatDialogModule,
               MatTableModule,
-              MatListModule
+              MatListModule,
+              MatSelectModule
             ],
 })
 export class MaterialModule { }
