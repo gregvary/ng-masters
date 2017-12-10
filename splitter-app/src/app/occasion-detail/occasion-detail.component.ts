@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 import { OccasionService } from '../occasion.service';
+import { Occasion } from '../occasion';
 import {MatChipInputEvent} from '@angular/material';
 import {ENTER, COMMA} from '@angular/cdk/keycodes';
 
@@ -15,6 +16,9 @@ import {ENTER, COMMA} from '@angular/cdk/keycodes';
   styleUrls: ['./occasion-detail.component.css']
 })
 export class OccasionDetailComponent implements OnInit {
+
+  private occasion: Occasion;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -42,17 +46,17 @@ export class OccasionDetailComponent implements OnInit {
   separatorKeysCodes = [ENTER, COMMA];
 
   add(event: MatChipInputEvent): void {
-  let input = event.input;
-  let value = event.value;
+    let input = event.input;
+    let value = event.value;
 
-  if ((value || '').trim()) {
-    this.occasion.participants.push(value.trim());
-  }
-
-  // Reset the input value
-  if (input) {
-    input.value = '';
+    if ((value || '').trim()) {
+      this.occasion.participants.push(value.trim());
     }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+      }
   }
 
   remove(participant: any): void {
