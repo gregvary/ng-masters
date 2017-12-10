@@ -10,7 +10,7 @@
     </mat-form-field>
     <br>
 
-    <mat-form-field class="occasion-form" class="demo-chip-list">
+    <mat-form-field class="occasion-form">
       <mat-chip-list #chipList>
         <mat-chip *ngFor="let participant of occasion.participants" [selectable]="selectable" [removable]="removable" (remove)="remove(participant)">
           {{participant.name}}
@@ -46,7 +46,7 @@
   </div>
 
     <div class="example-container mat-elevation-z8">
-      <mat-table #table [dataSource]="dataSource">
+      <mat-table #table [(dataSource)]="dataSource">
 
         <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
