@@ -6,8 +6,11 @@ import 'rxjs/add/operator/switchMap';
 
 import { OccasionService } from '../occasion.service';
 import { Occasion } from '../occasion';
+import { Item } from '../item';
+import { Person } from '../person';
 import {MatChipInputEvent} from '@angular/material';
 import {ENTER, COMMA} from '@angular/cdk/keycodes';
+import {MatTableDataSource} from '@angular/material';
 
 
 @Component({
@@ -18,7 +21,10 @@ import {ENTER, COMMA} from '@angular/cdk/keycodes';
 export class OccasionDetailComponent implements OnInit {
 
   private occasion: Occasion;
+  private items: Item[];
 
+  displayedColumns = ['name', 'payer', 'amount'];
+  dataSource;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,6 +34,8 @@ export class OccasionDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOccasion();
+    this.items = this.occasion.items;
+    this.dataSource = new MatTableDataSource<Item>(this.items);
   }
 
   getOccasion(): void {
@@ -48,9 +56,13 @@ export class OccasionDetailComponent implements OnInit {
   add(event: MatChipInputEvent): void {
     let input = event.input;
     let value = event.value;
+    let newPerson = {
+      name: event.value,
+      credit: 0
+    }
 
     if ((value || '').trim()) {
-      this.occasion.participants.push(value.trim());
+      this.occasion.participants.push(newPerson);
     }
 
     // Reset the input value

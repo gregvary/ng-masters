@@ -12,20 +12,55 @@
 
     <mat-form-field class="demo-chip-list">
       <mat-chip-list #chipList>
-        <mat-chip *ngFor="let participant of occasion.participants" [selectable]="selectable"
-                 [removable]="removable" (remove)="remove(participant)">
-          {{participant}}
+        <mat-chip *ngFor="let participant of occasion.participants" [selectable]="selectable" [removable]="removable" (remove)="remove(participant)">
+          {{participant.name}}
           <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
         </mat-chip>
-        <input placeholder="New participant..."
-               [matChipInputFor]="chipList"
-               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-               [matChipInputAddOnBlur]="addOnBlur"
-               (matChipInputTokenEnd)="add($event)" />
+        <input placeholder="New participant..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
       </mat-chip-list>
     </mat-form-field>
 
-    
 
   </mat-card>
+  <mat-card>
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSource">
+
+        <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+          <mat-cell *matCellDef="let item"> {{item.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="payer">
+          <mat-header-cell *matHeaderCellDef> Payer </mat-header-cell>
+          <mat-cell *matCellDef="let item"> {{item.payer.name}} </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="amount">
+          <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+          <mat-cell *matCellDef="let item"> {{item.amount}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+
+  </mat-card>
+
+
+<mat-card>
+  <mat-list>
+ <mat-list-item *ngFor="let transaction of occasion.transactions"> {{transaction.debtor.name}} owes {{transaction.creditor.name}} {{transaction.amount}} </mat-list-item>
+</mat-list>
+</mat-card>
+
+
 </div>

@@ -10,6 +10,9 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatInputModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
+
 
 
 
@@ -24,7 +27,9 @@ import {MatDialogModule} from '@angular/material/dialog';
               MatFormFieldModule,
               MatInputModule,
               MatIconModule,
-              MatDialogModule
+              MatDialogModule,
+              MatTableModule,
+              MatListModule
 
             ],
   exports: [  MatButtonModule,
@@ -34,7 +39,9 @@ import {MatDialogModule} from '@angular/material/dialog';
               MatFormFieldModule,
               MatInputModule,
               MatIconModule,
-              MatDialogModule
+              MatDialogModule,
+              MatTableModule,
+              MatListModule
             ],
 })
 export class MaterialModule { }
