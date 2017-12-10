@@ -12,7 +12,6 @@ export class OccasionComponent implements OnInit {
 
   constructor() {
   }
-  flag = "true";
   ngOnInit() {
   }
 
