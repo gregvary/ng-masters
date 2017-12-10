@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Occasion } from '../occasion';
+import { OccasionService } from '../occasion.service';
 
 @Component({
   selector: 'app-occasion',
@@ -7,20 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OccasionComponent implements OnInit {
 
-  private name: string;
-  private description: string;
-  private participants: Array<string>;
-  private totalSpending: number;
-  private date: string;
+  @Input() occasion: Occasion;
 
   constructor() { }
 
   ngOnInit() {
-  	this.name = 'MockOccasion';
-  	this.description = 'Dies ist nur ein Test';
-  	this.participants = ['Ich', 'Du', 'Er', 'Sie', 'Es'];
-  	this.totalSpending = 42.5;
-  	this.date = '13.12.17';
   }
 
 }
