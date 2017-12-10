@@ -8,14 +8,19 @@ import {FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
+import { OccasionComponent } from './occasion/occasion.component';
+import { OccasionListComponent } from './occasion-list/occasion-list.component';
+import { CurrencyService } from '../services/currency.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OccasionComponent,
+    OccasionListComponent
   ],
   imports: [
-    BrowserModule
+    
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
@@ -23,7 +28,7 @@ import { AppComponent } from './app.component';
     FormsModule
 
   ],
-  providers: [],
+  providers: [CurrencyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
