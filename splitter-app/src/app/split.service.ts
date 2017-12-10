@@ -22,7 +22,7 @@ export class SplitService {
       let contribution = this.getTotalAmount(occ)/occ.participants.length;
     
       for (let i=0; i<persons.length; i++){
-        let person = persons[i];
+        let person = Object.assign({},persons[i]);
         //set 'contribution' as dept for everyone
         person.credit = person.credit - contribution;
     
@@ -39,10 +39,6 @@ export class SplitService {
         return result;
       }
     
-       //make clones of the arrays, so we can make changes to the elements 
-       //without affecting original Data (neccesary?)
-       personsWithCredit = personsWithCredit.slice(0);
-       personsWithDept = personsWithDept.slice(0);
        let indexCreditor = 0;
        let indexDeptor = 0;
 
