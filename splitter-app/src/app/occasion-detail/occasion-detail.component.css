@@ -8,6 +8,16 @@
 
 .item-form-wrapper {
   display: flex;
+  margin-bottom: 10px;
+}
+.item-edit-forms {
+  margin: 0 10px 0 10px;
+  display: inline-block;
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+.item-edit-forms-shorten {
+  width: 40px;
 }
 .item-list-adder {
   display: inline-block;

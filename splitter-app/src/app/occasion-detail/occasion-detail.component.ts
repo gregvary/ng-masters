@@ -67,6 +67,7 @@ export class OccasionDetailComponent implements OnInit {
     console.log(this.newItemPayer);
     this.occasion.participants.forEach( participant => {
         if(participant.name === this.newItemPayer){
+          participant.credit += this.newItemAmount;
           newItemParticipant = participant;
         }
     });
