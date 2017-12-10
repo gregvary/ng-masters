@@ -6,11 +6,13 @@ import { MaterialModule } from './material.module';
 
 
 import { AppComponent } from './app.component';
+import { OccasionComponent } from './occasion/occasion.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OccasionComponent
   ],
   imports: [
     BrowserModule,
