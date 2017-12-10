@@ -89,6 +89,11 @@ export class OccasionDetailComponent implements OnInit {
 
     if (index >= 0) {
       this.occasion.items.splice(index, 1);
+      this.occasion.participants.forEach( participant => {
+          if(participant.name === item.payer.name){
+            participant.credit -= item.amount;
+          }
+      });
       this.dataSource = new MatTableDataSource<Item>(this.items);
 
     }

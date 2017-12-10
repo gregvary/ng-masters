@@ -29,13 +29,7 @@ export const OCCASIONS: Occasion[] = [
         payer: { name: 'Arya', credit: 5 }
       }
     ],
-    transactions: [
-      {
-        debtor: { name: 'Sandor', credit: 0 },
-        creditor: { name: 'Arya', credit: 0 },
-        amount: 20
-      }
-    ],
+    transactions: [],
     date: '03.05.1014'
   }
   // {
