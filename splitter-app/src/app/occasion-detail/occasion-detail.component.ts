@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
 
+import { SplitService } from '../split.service';
 import { OccasionService } from '../occasion.service';
 import { Occasion } from '../occasion';
 import { Item } from '../item';
@@ -35,13 +36,23 @@ export class OccasionDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: OccasionService,
-    private location: Location
+    private location: Location,
+    private splitService: SplitService
   ) {}
+
+  update(): void {
+    // this.occasion.transactions = [];
+    console.log('i bims, das update');
+    this.occasion.transactions = this.splitService.split(this.occasion);
+    console.log(this.occasion);
+    console.log(this.occasion.transactions);
+  }
 
   ngOnInit(): void {
     this.getOccasion();
     this.items = this.occasion.items;
     this.dataSource = new MatTableDataSource<Item>(this.items);
+    this.update();
   }
 
   getOccasion(): void {
@@ -69,7 +80,7 @@ export class OccasionDetailComponent implements OnInit {
     this.occasion.items.push(newItem);
     console.log(this.occasion.items);
     this.dataSource = new MatTableDataSource<Item>(this.items);
-
+    this.update();
   }
 
   deleteItem(item: any): void {
@@ -80,6 +91,7 @@ export class OccasionDetailComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Item>(this.items);
 
     }
+    this.update();
   }
 
 
@@ -101,12 +113,14 @@ export class OccasionDetailComponent implements OnInit {
 
     if ((value || '').trim()) {
       this.occasion.participants.push(newPerson);
+      this.update();
     }
 
     // Reset the input value
     if (input) {
       input.value = '';
       }
+
   }
 
   remove(participant: any): void {
@@ -114,6 +128,7 @@ export class OccasionDetailComponent implements OnInit {
 
     if (index >= 0) {
       this.occasion.participants.splice(index, 1);
+      this.update();
     }
   }
 
