@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { OccasionComponent } from './occasion/occasion.component';
 import { OccasionListComponent } from './occasion-list/occasion-list.component';
 import { OccasionDetailComponent } from './occasion-detail/occasion-detail.component';
+import { SplitService } from './split.service';
 
 
 
@@ -28,7 +29,7 @@ import { OccasionDetailComponent } from './occasion-detail/occasion-detail.compo
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [ OccasionService ],
+  providers: [ OccasionService, SplitService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
