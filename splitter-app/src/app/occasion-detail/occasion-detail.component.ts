@@ -1,6 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
-import { Occasion } from '../occasion';
+import 'rxjs/add/operator/switchMap';
+
+import { OccasionService } from '../occasion.service';
+// import { Occasion } from '../occasion';
 
 
 @Component({
@@ -10,11 +15,23 @@ import { Occasion } from '../occasion';
 })
 export class OccasionDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private service: OccasionService
+    private location: Location,
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getOccasion();
   }
 
-  @Input() occasion: Occasion;
+  getOccasion(): void {
+    // += converts string to number
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.service.getOccasion(id)
+      .subscribe(occasion => this.occasion = occasion);
+  }
+
+  // @Input() occasion: Occasion;
 
 }

@@ -12,6 +12,10 @@ export class OccasionService {
     return of(OCCASIONS);
   }
 
+  getOccasion(id: number): Observable<Occasion> {
+    return of(OCCASIONS.find(occasion => occasion.id === id));
+  }
+
   constructor() { }
 
 }
