@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+
 import 'rxjs/add/operator/switchMap';
 
 import { OccasionService } from '../occasion.service';
@@ -23,8 +24,13 @@ export class OccasionDetailComponent implements OnInit {
   private occasion: Occasion;
   private items: Item[];
 
+  newItemName;
+  newItemPayer;
+  newItemAmount;
+
   displayedColumns = ['name', 'payer', 'amount'];
   dataSource;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -43,6 +49,27 @@ export class OccasionDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.service.getOccasion(id)
       .subscribe(occasion => this.occasion = occasion);
+  }
+
+  submitItem(): void {
+    let newItemParticipant;
+    console.log(this.newItemPayer);
+    this.occasion.participants.forEach( participant => {
+        if(participant.name === this.newItemPayer){
+          newItemParticipant = participant;
+        }
+    });
+
+    let newItem = {
+      name: this.newItemName,
+      amount: this.newItemAmount,
+      payer: newItemParticipant
+    }
+    console.log(newItem);
+    this.occasion.items.push(newItem);
+    console.log(this.occasion.items);
+    this.dataSource = new MatTableDataSource<Item>(this.items);
+
   }
 
   visible: boolean = true;

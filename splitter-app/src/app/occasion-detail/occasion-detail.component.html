@@ -26,19 +26,23 @@
 
 <div class="item-form-wrapper">
 
+<form>
+
   <mat-form-field>
-    <input matInput placeholder="Name">
+    <input [(ngModel)]="newItemName" matInput placeholder="Name" name="newItemName">
   </mat-form-field>
-    <mat-select>
+    <mat-select [(ngModel)]="newItemPayer" name="newItemPayer">
       <mat-placeholder>Participant</mat-placeholder>
-      <mat-option *ngFor="let participant of occasion.participants" [value]="participant.value">
+      <mat-option *ngFor="let participant of occasion.participants" [value]="participant.name">
         {{ participant.name }}
       </mat-option>
     </mat-select>
-    <mat-form-field>
 
-      <input matInput type="number" name="price" value="0.00">
-    </mat-form-field>
+  <mat-form-field>
+      <input [(ngModel)]="newItemAmount" name="newItemAmount" matInput type="number" name="price" value="0.00">
+  </mat-form-field>
+    <button mat-raised-button color=primary (click)="submitItem()">Submit</button>
+  </form>
   </div>
 
     <div class="example-container mat-elevation-z8">

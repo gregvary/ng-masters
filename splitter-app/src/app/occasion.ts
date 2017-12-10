@@ -8,7 +8,7 @@ export class Occasion {
   description: string;
   participants:Person[];
   items:Item[];
-  transactions: Transaction[],
+  transactions: Transaction[];
   totalSpending: number;
   date: string;
 }
