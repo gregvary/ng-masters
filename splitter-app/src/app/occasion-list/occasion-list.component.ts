@@ -27,13 +27,6 @@ export class OccasionListComponent implements OnInit {
       .subscribe(occasions => this.occasions = occasions);
   }
 
-  deleteOccasion(occasion: any): void {
-    let index = this.occasions.indexOf(occasion);
-
-    if (index >= 0) {
-      this.occasions.splice(index, 1);
-    }
-  }
 
   addNewOccasion(): void {
     //shitty hack because we're using mock data
