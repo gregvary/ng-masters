@@ -1,0 +1,22 @@
+<div class="detail-wrapper">
+  <h2>{{ occasion.name }}</h2>
+  <mat-card>
+    <mat-form-field class="occasion-form">
+      <input [(ngModel)]="occasion.name" matInput placeholder="Name">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="occasion-form">
+      <textarea [(ngModel)]="occasion.description" matInput placeholder="Description"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="occasion-form">
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let participant of occasion.participants" [selectable]="selectable" (remove)="removeParticipant(participant)">
+          {{participant}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="New participant..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addParticipant($event)" />
+      </mat-chip-list>
+    </mat-form-field>
+  </mat-card>
+</div>

@@ -5,4 +5,5 @@ export class Occasion {
   participants: Array<string>;
   totalSpending: number;
   date: string;
+  highlight: boolean;
 }

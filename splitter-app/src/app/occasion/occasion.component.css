@@ -14,3 +14,7 @@
 .mat-card-subtitle {
   margin-top: 0 !important;
 }
+
+.highlight {
+	color: red;
+}
