@@ -1,0 +1,20 @@
+.occasion-card {
+  width: 400px;
+  margin: 20px;
+  display: inline-block;
+}
+
+.title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*sorry für das important aber angular überschreibt die styles irgendwie...*/
+.mat-card-subtitle {
+  margin-top: 0 !important;
+}
+
+.open-button {
+  text-decoration: none;
+}
