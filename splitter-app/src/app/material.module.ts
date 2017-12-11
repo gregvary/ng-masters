@@ -27,7 +27,6 @@ import {MatSelectModule} from '@angular/material/select';
               MatTableModule,
               MatListModule,
               MatSelectModule
-              MatSelectModule
 
             ],
   exports: [  MatButtonModule,

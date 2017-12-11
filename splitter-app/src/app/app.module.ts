@@ -6,7 +6,6 @@ import { MaterialModule } from './material.module';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { OccasionService } from './occasion.service'
@@ -24,19 +23,18 @@ import { CurrencyService } from '../services/currency.service';
   declarations: [
     AppComponent,
     OccasionComponent,
-    OccasionListComponent
+    OccasionListComponent,
+    OccasionDetailComponent
   ],
   imports: [
-
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
     FormsModule
-
   ],
-<<<<<<< HEAD
   providers: [ OccasionService, SplitService, CurrencyService ],
   bootstrap: [AppComponent]
 })
