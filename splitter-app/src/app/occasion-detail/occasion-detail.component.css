@@ -28,3 +28,7 @@
 .mat-card {
   margin-bottom: 30px;
 }
+
+.mat-select-value-text {
+  color: black;
+}

@@ -9,7 +9,6 @@
       <textarea [(ngModel)]="occasion.description" matInput placeholder="Description"></textarea>
     </mat-form-field>
     <br>
-
     <mat-form-field class="occasion-form">
       <mat-chip-list #chipList>
         <mat-chip *ngFor="let participant of occasion.participants" [selectable]="selectable" [removable]="removable" (remove)="remove(participant)">
@@ -19,39 +18,34 @@
         <input placeholder="New participant..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
       </mat-chip-list>
     </mat-form-field>
-
-
   </mat-card>
   <mat-card>
     <mat-card-title>Transactions</mat-card-title>
+    <div>
 
-<div>
+      <form class="item-form-wrapper">
+        <mat-form-field class="item-edit-forms">
+          <input required [(ngModel)]="newItemName" matInput placeholder="Transacion name" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
 
-<form class="item-form-wrapper">
+        <mat-form-field>
+          <mat-select required class="item-edit-forms item-edit-forms-shorten" [(ngModel)]="newItemPayer" placeholder="Payer" [ngModelOptions]="{standalone: true}">
+            <mat-option *ngFor="let participant of occasion.participants" [value]="participant.name">
+              {{ participant.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
-  <mat-form-field class="item-edit-forms">
-    <input [(ngModel)]="newItemName" matInput placeholder="Name" name="newItemName">
-  </mat-form-field>
-    <mat-select class="item-edit-forms item-edit-forms-shorten" [(ngModel)]="newItemPayer" name="newItemPayer">
-      <mat-placeholder>Participant</mat-placeholder>
-      <mat-option *ngFor="let participant of occasion.participants" [value]="participant.name">
-        {{ participant.name }}
-      </mat-option>
-    </mat-select>
+        <mat-form-field class="item-edit-forms">
+          <input required [(ngModel)]="newItemAmount" name="newItemAmount" matInput type="number" name="price" value="0.00" min="0.01" placeholder="Price">
+        </mat-form-field>
 
-  <mat-form-field class="item-edit-forms item-edit-forms-shorten">
-      <input [(ngModel)]="newItemAmount" name="newItemAmount" matInput type="number" name="price" value="0.00" min="0.01">
-  </mat-form-field>
-    <button class="item-edit-forms item-edit-forms-shorten" mat-raised-button color=primary (click)="submitItem()">Submit</button>
-  </form>
-  </div>
+        <button class="item-edit-forms item-edit-forms-shorten" mat-raised-button color=primary (click)="submitItem()">Submit</button>
+      </form>
+    </div>
 
     <div class="mat-elevation-z8">
       <mat-table #table [(dataSource)]="dataSource">
-
-        <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
 
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
@@ -79,15 +73,12 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
     </div>
-
   </mat-card>
 
-
-<mat-card>
-  <mat-list>
- <mat-list-item *ngFor="let transaction of occasion.transactions"> {{transaction.debtor.name}} owes {{transaction.creditor.name}} {{transaction.amount | convertcurrency }} </mat-list-item>
-</mat-list>
-</mat-card>
-
+  <mat-card>
+    <mat-list>
+      <mat-list-item *ngFor="let transaction of occasion.transactions"> {{transaction.debtor.name}} owes {{transaction.creditor.name}} {{transaction.amount | convertcurrency }} </mat-list-item>
+    </mat-list>
+  </mat-card>
 
 </div>
