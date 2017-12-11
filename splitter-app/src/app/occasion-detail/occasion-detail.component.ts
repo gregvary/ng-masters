@@ -22,8 +22,8 @@ import {MatTableDataSource} from '@angular/material';
 })
 export class OccasionDetailComponent implements OnInit {
 
-  private occasion: Occasion;
-  private items: Item[];
+  public occasion: Occasion;
+  public items: Item[];
 
   newItemName;
   newItemPayer;
@@ -34,10 +34,10 @@ export class OccasionDetailComponent implements OnInit {
 
 
   constructor(
-    private route: ActivatedRoute,
-    private service: OccasionService,
-    private location: Location,
-    private splitService: SplitService
+    public route: ActivatedRoute,
+    public service: OccasionService,
+    public location: Location,
+    public splitService: SplitService
   ) {}
 
   update(): void {
