@@ -15,12 +15,6 @@ import {MatListModule} from '@angular/material/list';
 import {MatSelectModule} from '@angular/material/select';
 
 
-
-
-
-
-
-
 @NgModule({
   imports: [  MatButtonModule,
               MatToolbarModule,
@@ -32,6 +26,7 @@ import {MatSelectModule} from '@angular/material/select';
               MatDialogModule,
               MatTableModule,
               MatListModule,
+              MatSelectModule
               MatSelectModule
 
             ],
