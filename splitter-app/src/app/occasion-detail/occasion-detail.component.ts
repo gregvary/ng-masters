@@ -41,9 +41,9 @@ export class OccasionDetailComponent implements OnInit {
   ) {}
 
   update(): void {
-    // this.occasion.transactions = [];
     console.log('i bims, das update');
     this.occasion.transactions = this.splitService.split(this.occasion);
+    this.occasion.totalSpending = this.splitService.getTotalAmount(this.occasion);
     console.log(this.occasion);
     console.log(this.occasion.transactions);
   }
@@ -65,9 +65,15 @@ export class OccasionDetailComponent implements OnInit {
   submitItem(): void {
     let newItemParticipant;
     console.log(this.newItemPayer);
+    let currencyRate = +window.localStorage.getItem('currencyRate');
+    console.log(currencyRate);
+
     this.occasion.participants.forEach( participant => {
         if(participant.name === this.newItemPayer){
+          this.newItemAmount = (this.newItemAmount/currencyRate);
           participant.credit += this.newItemAmount;
+          console.log('credit: '+participant.credit);
+          console.log('nemitemamount:'+this.newItemAmount);
           newItemParticipant = participant;
         }
     });
@@ -99,7 +105,6 @@ export class OccasionDetailComponent implements OnInit {
     }
     this.update();
   }
-
 
   visible: boolean = true;
   selectable: boolean = true;

@@ -2,7 +2,7 @@
 <div>
   <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <span>Splitter</span>
+      <span routerLink="/">Splitter</span>
       <span class="fill-remaining-space"></span>
       <mat-select [(ngModel)]="selectedItem" [(value)] = "selectedItem" (ngModelChange)="getSelectedValue(selectedItem)" class="select-box" placeholder="{{currencyPlaceholder}}">
 
@@ -14,7 +14,8 @@
       <button mat-button>Contact</button>
     </mat-toolbar-row>
   </mat-toolbar>
-<app-occasion-list></app-occasion-list>
+  <router-outlet></router-outlet>
+<!-- <app-occasion-list></app-occasion-list> -->
 
 
 </div>

@@ -17,6 +17,7 @@ import { OccasionDetailComponent } from './occasion-detail/occasion-detail.compo
 import { SplitService } from './split.service';
 
 import { CurrencyService } from '../services/currency.service';
+import { ConvertcurrencyPipe } from './convertcurrency.pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CurrencyService } from '../services/currency.service';
     AppComponent,
     OccasionComponent,
     OccasionListComponent,
-    OccasionDetailComponent
+    OccasionDetailComponent,
+    ConvertcurrencyPipe
   ],
   imports: [
     AppRoutingModule,
