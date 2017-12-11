@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import {OccasionService} from '../occasion.service';
 import { Occasion } from '../occasion';
-import { OccasionService } from '../occasion.service';
 
 @Component({
   selector: 'app-occasion',
@@ -10,28 +9,23 @@ import { OccasionService } from '../occasion.service';
 })
 export class OccasionComponent implements OnInit {
 
-  occasions: Occasion[];
+  private occasions : Array<Occasion>;
 
-  constructor(private occasionService: OccasionService) {
-  }
+  @Input() occasion: Occasion;
 
-  getOccasions(): void {
-    this.occasionService.getOccasions()
-      .subscribe(occasions => this.occasions = occasions);
+  constructor(private occasionService: OccasionService) { }
+
+  ngOnInit() {
   }
 
   deleteOccasion(occasion: any): void {
-    let index = this.occasions.indexOf(occasion);
+    this.occasionService.getOccasions().subscribe(occasions => this.occasions = occasions);
+    console.log(this.occasions);
 
+    let index = this.occasions.indexOf(occasion);
     if (index >= 0) {
       this.occasions.splice(index, 1);
     }
   }
-
-  ngOnInit() {
-    this.getOccasions();
-  }
-
-  @Input() occasion: Occasion;
 
 }
