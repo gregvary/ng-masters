@@ -28,8 +28,8 @@
           <input required [(ngModel)]="newItemName" matInput placeholder="Transacion name" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
 
-        <mat-form-field>
-          <mat-select required class="item-edit-forms item-edit-forms-shorten" [(ngModel)]="newItemPayer" placeholder="Payer" [ngModelOptions]="{standalone: true}">
+        <mat-form-field class="item-edit-forms">
+          <mat-select required [(ngModel)]="newItemPayer" placeholder="Payer" [ngModelOptions]="{standalone: true}">
             <mat-option *ngFor="let participant of occasion.participants" [value]="participant.name">
               {{ participant.name }}
             </mat-option>
@@ -75,7 +75,7 @@
     </div>
   </mat-card>
 
-  <mat-card>
+  <mat-card *ngIf="occasion.transactions.length > 0">
     <mat-list>
       <mat-list-item *ngFor="let transaction of occasion.transactions"> {{transaction.debtor.name}} owes {{transaction.creditor.name}} {{transaction.amount | convertcurrency }} </mat-list-item>
     </mat-list>

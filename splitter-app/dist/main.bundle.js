@@ -48,8 +48,8 @@ var AppRoutingModule = (function () {
     }
     AppRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NgModule */])({
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]],
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)]
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -80,7 +80,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <span routerLink=\"/\">Splitter</span>\n      <span class=\"fill-remaining-space\"></span>\n      <mat-select [(ngModel)]=\"selectedItem\" [(value)]=\"selectedItem\" (ngModelChange)=\"getSelectedValue(selectedItem)\" class=\"select-box\" placeholder=\"{{currencyPlaceholder}}\">\n        <mat-option class=\"select-option\" *ngFor=\"let currency of currencies\" [value]=\"currency.value\">\n          {{ currency.viewValue }} <img [style.width.px]=\"16\" [style.height.px]=\"16\" [src]=\"currency.imageUrl\" />\n        </mat-option>\n      </mat-select>\n      <button mat-button>About</button>\n      <button mat-button>Contact</button>\n    </mat-toolbar-row>\n  </mat-toolbar>\n  <router-outlet></router-outlet>\n\n\n</div>\n"
+module.exports = "<div>\n  <mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <span routerLink=\"/\">Splitter</span>\n      <span class=\"fill-remaining-space\"></span>\n      <mat-select [(ngModel)]=\"selectedItem\" [(value)]=\"selectedItem\" (ngModelChange)=\"getSelectedValue(selectedItem)\" class=\"select-box currency-selector\" placeholder=\"EUR\">\n        <mat-option class=\"select-option\" *ngFor=\"let currency of currencies\" [value]=\"currency.value\">\n          {{ currency.viewValue }} <img [style.width.px]=\"16\" [style.height.px]=\"16\" [src]=\"currency.imageUrl\" />\n        </mat-option>\n      </mat-select>\n      <button mat-button>About</button>\n      <button mat-button>Contact</button>\n    </mat-toolbar-row>\n  </mat-toolbar>\n  <router-outlet></router-outlet>\n\n\n</div>\n"
 
 /***/ }),
 
@@ -372,34 +372,83 @@ var OCCASIONS = [
         ],
         transactions: [],
         date: '03.05.1014'
+    },
+    {
+        id: 2,
+        name: 'Red Wedding',
+        description: 'They Freys invite the Starks to a Wedding',
+        participants: [
+            {
+                name: 'Robb',
+                credit: 0
+            },
+            {
+                name: 'Catelyn',
+                credit: 0
+            },
+            {
+                name: 'Walder',
+                credit: 600
+            },
+            {
+                name: 'Roose',
+                credit: 66.66
+            }
+        ],
+        totalSpending: 666.66,
+        items: [
+            {
+                name: 'Crossbows',
+                amount: 600.00,
+                payer: { name: 'Walder', credit: 600 }
+            },
+            {
+                name: 'Dagger',
+                amount: 66.66,
+                payer: { name: 'Roose', credit: 66.66 }
+            }
+        ],
+        transactions: [],
+        date: '21.08.1013'
+    },
+    {
+        id: 3,
+        name: 'Hiking Trip in the North',
+        description: 'The boys go on a hiking adventure to catch a zombie',
+        participants: [
+            {
+                name: 'Jon',
+                credit: 800.00
+            },
+            {
+                name: 'Beric',
+                credit: 0
+            },
+            {
+                name: 'Gendry',
+                credit: 200.00
+            },
+            {
+                name: 'Tormund',
+                credit: 0
+            }
+        ],
+        totalSpending: 1000.00,
+        items: [
+            {
+                name: 'Warhammer',
+                amount: 200.00,
+                payer: { name: 'Gendry', credit: 200.00 }
+            },
+            {
+                name: 'Dragonglass',
+                amount: 800.00,
+                payer: { name: 'Jon', credit: 800.00 }
+            }
+        ],
+        transactions: [],
+        date: '04.12.1017'
     }
-    // {
-    //   id: 2,
-    //   name: 'Red Wedding',
-    //   description: 'They Freys invite the Starks to a Wedding',
-    //   participants: [{ name: 'Robb', credit: 10 }, { name: 'Catelyn', credit: 10 }, { name: 'Waldor', credit: 10 }, { name: 'Roose', credit: 10 }],
-    //   totalSpending: 485.32,
-    //   items: [],
-    //   date: '21.08.1013'
-    // },
-    // {
-    //   id: 3,
-    //   name: 'Hiking Trip in the North',
-    //   description: 'The boys go on a hiking adventure to catch a zombie',
-    //   participants: [{ name: 'John', credit: 10 }, { name: 'Beric', credit: 10 }, { name: 'Gendry', credit: 10 }, { name: 'Tormund', credit: 10 }],
-    //   totalSpending: 123.45,
-    //   items: [],
-    //   date: '04.12.1017'
-    // },
-    // {
-    //   id: 4,
-    //   name: 'Fireworks show',
-    //   description: 'Cersei tests Qyburns Wildfire on some ships',
-    //   participants: [{ name: 'Cersei', credit: 10 }, { name: 'Qyburn', credit: 10 }],
-    //   totalSpending: 1731.00,
-    //   items: [],
-    //   date: '12.03.1014'
-    // },
 ];
 
 
@@ -413,7 +462,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".detail-wrapper {\n\n  padding: 30px;\n}\n.occasion-form {\n  width: 100%;\n}\n\n.item-form-wrapper {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n}\n.item-edit-forms {\n  margin: 0 10px 0 10px;\n  display: inline-block;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.item-edit-forms-shorten {\n  width: 40px;\n}\n.item-list-adder {\n  display: inline-block;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n\n}\n.mat-card {\n  margin-bottom: 30px;\n}\n\n.mat-select-value-text {\n  color: black;\n}\n", ""]);
+exports.push([module.i, ".detail-wrapper {\n  padding: 30px;\n}\n.occasion-form {\n  width: 100%;\n}\n.item-form-wrapper {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-bottom: 10px;\n}\n.item-edit-forms {\n  margin: 0 10px 0 10px;\n  display: inline-block;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.item-edit-forms-shorten {\n  width: 40px;\n}\n.item-list-adder {\n  display: inline-block;\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.mat-card {\n  margin-bottom: 30px;\n}\n", ""]);
 
 // exports
 
@@ -426,7 +475,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/occasion-detail/occasion-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"detail-wrapper\">\n  <h2>{{ occasion.name }}</h2>\n  <mat-card>\n    <mat-form-field class=\"occasion-form\">\n      <input [(ngModel)]=\"occasion.name\" matInput placeholder=\"Name\">\n    </mat-form-field>\n    <br>\n    <mat-form-field class=\"occasion-form\">\n      <textarea [(ngModel)]=\"occasion.description\" matInput placeholder=\"Description\"></textarea>\n    </mat-form-field>\n    <br>\n    <mat-form-field class=\"occasion-form\">\n      <mat-chip-list #chipList>\n        <mat-chip *ngFor=\"let participant of occasion.participants\" [selectable]=\"selectable\" [removable]=\"removable\" (remove)=\"remove(participant)\">\n          {{participant.name}}\n          <mat-icon matChipRemove *ngIf=\"participant.credit === 0\">cancel</mat-icon>\n        </mat-chip>\n        <input placeholder=\"New participant...\" [matChipInputFor]=\"chipList\" [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\" [matChipInputAddOnBlur]=\"addOnBlur\" (matChipInputTokenEnd)=\"add($event)\" />\n      </mat-chip-list>\n    </mat-form-field>\n  </mat-card>\n  <mat-card>\n    <mat-card-title>Transactions</mat-card-title>\n    <div>\n\n      <form class=\"item-form-wrapper\">\n        <mat-form-field class=\"item-edit-forms\">\n          <input required [(ngModel)]=\"newItemName\" matInput placeholder=\"Transacion name\" [ngModelOptions]=\"{standalone: true}\">\n        </mat-form-field>\n\n        <mat-form-field>\n          <mat-select required class=\"item-edit-forms item-edit-forms-shorten\" [(ngModel)]=\"newItemPayer\" placeholder=\"Payer\" [ngModelOptions]=\"{standalone: true}\">\n            <mat-option *ngFor=\"let participant of occasion.participants\" [value]=\"participant.name\">\n              {{ participant.name }}\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n\n        <mat-form-field class=\"item-edit-forms\">\n          <input required [(ngModel)]=\"newItemAmount\" name=\"newItemAmount\" matInput type=\"number\" name=\"price\" value=\"0.00\" min=\"0.01\" placeholder=\"Price\">\n        </mat-form-field>\n\n        <button class=\"item-edit-forms item-edit-forms-shorten\" mat-raised-button color=primary (click)=\"submitItem()\">Submit</button>\n      </form>\n    </div>\n\n    <div class=\"mat-elevation-z8\">\n      <mat-table #table [(dataSource)]=\"dataSource\">\n\n        <ng-container matColumnDef=\"name\">\n          <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>\n          <mat-cell *matCellDef=\"let item\"> {{item.name}} </mat-cell>\n        </ng-container>\n\n        <ng-container matColumnDef=\"payer\">\n          <mat-header-cell *matHeaderCellDef> Payer </mat-header-cell>\n          <mat-cell *matCellDef=\"let item\"> {{item.payer.name}} </mat-cell>\n        </ng-container>\n\n        <ng-container matColumnDef=\"amount\">\n          <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>\n          <mat-cell *matCellDef=\"let item\"> {{item.amount | convertcurrency }}</mat-cell>\n        </ng-container>\n\n        <ng-container matColumnDef=\"delete\">\n          <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>\n          <mat-cell *matCellDef=\"let item\" (click)=\"deleteItem(item)\">\n            <mat-icon>cancel</mat-icon>\n          </mat-cell>\n        </ng-container>\n\n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n      </mat-table>\n    </div>\n  </mat-card>\n\n  <mat-card>\n    <mat-list>\n      <mat-list-item *ngFor=\"let transaction of occasion.transactions\"> {{transaction.debtor.name}} owes {{transaction.creditor.name}} {{transaction.amount | convertcurrency }} </mat-list-item>\n    </mat-list>\n  </mat-card>\n\n</div>\n"
+module.exports = "<div class=\"detail-wrapper\">\n  <h2>{{ occasion.name }}</h2>\n  <mat-card>\n    <mat-form-field class=\"occasion-form\">\n      <input [(ngModel)]=\"occasion.name\" matInput placeholder=\"Name\">\n    </mat-form-field>\n    <br>\n    <mat-form-field class=\"occasion-form\">\n      <textarea [(ngModel)]=\"occasion.description\" matInput placeholder=\"Description\"></textarea>\n    </mat-form-field>\n    <br>\n    <mat-form-field class=\"occasion-form\">\n      <mat-chip-list #chipList>\n        <mat-chip *ngFor=\"let participant of occasion.participants\" [selectable]=\"selectable\" [removable]=\"removable\" (remove)=\"remove(participant)\">\n          {{participant.name}}\n          <mat-icon matChipRemove *ngIf=\"participant.credit === 0\">cancel</mat-icon>\n        </mat-chip>\n        <input placeholder=\"New participant...\" [matChipInputFor]=\"chipList\" [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\" [matChipInputAddOnBlur]=\"addOnBlur\" (matChipInputTokenEnd)=\"add($event)\" />\n      </mat-chip-list>\n    </mat-form-field>\n  </mat-card>\n  <mat-card>\n    <mat-card-title>Transactions</mat-card-title>\n    <div>\n\n      <form class=\"item-form-wrapper\">\n        <mat-form-field class=\"item-edit-forms\">\n          <input required [(ngModel)]=\"newItemName\" matInput placeholder=\"Transacion name\" [ngModelOptions]=\"{standalone: true}\">\n        </mat-form-field>\n\n        <mat-form-field class=\"item-edit-forms\">\n          <mat-select required [(ngModel)]=\"newItemPayer\" placeholder=\"Payer\" [ngModelOptions]=\"{standalone: true}\">\n            <mat-option *ngFor=\"let participant of occasion.participants\" [value]=\"participant.name\">\n              {{ participant.name }}\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n\n        <mat-form-field class=\"item-edit-forms\">\n          <input required [(ngModel)]=\"newItemAmount\" name=\"newItemAmount\" matInput type=\"number\" name=\"price\" value=\"0.00\" min=\"0.01\" placeholder=\"Price\">\n        </mat-form-field>\n\n        <button class=\"item-edit-forms item-edit-forms-shorten\" mat-raised-button color=primary (click)=\"submitItem()\">Submit</button>\n      </form>\n    </div>\n\n    <div class=\"mat-elevation-z8\">\n      <mat-table #table [(dataSource)]=\"dataSource\">\n\n        <ng-container matColumnDef=\"name\">\n          <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>\n          <mat-cell *matCellDef=\"let item\"> {{item.name}} </mat-cell>\n        </ng-container>\n\n        <ng-container matColumnDef=\"payer\">\n          <mat-header-cell *matHeaderCellDef> Payer </mat-header-cell>\n          <mat-cell *matCellDef=\"let item\"> {{item.payer.name}} </mat-cell>\n        </ng-container>\n\n        <ng-container matColumnDef=\"amount\">\n          <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>\n          <mat-cell *matCellDef=\"let item\"> {{item.amount | convertcurrency }}</mat-cell>\n        </ng-container>\n\n        <ng-container matColumnDef=\"delete\">\n          <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>\n          <mat-cell *matCellDef=\"let item\" (click)=\"deleteItem(item)\">\n            <mat-icon>cancel</mat-icon>\n          </mat-cell>\n        </ng-container>\n\n        <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n        <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n      </mat-table>\n    </div>\n  </mat-card>\n\n  <mat-card *ngIf=\"occasion.transactions.length > 0\">\n    <mat-list>\n      <mat-list-item *ngFor=\"let transaction of occasion.transactions\"> {{transaction.debtor.name}} owes {{transaction.creditor.name}} {{transaction.amount | convertcurrency }} </mat-list-item>\n    </mat-list>\n  </mat-card>\n\n</div>\n"
 
 /***/ }),
 
@@ -595,7 +644,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/occasion-list/occasion-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Your Splits</h2>\n<ul>\n  <app-occasion *ngFor=\"let occasion of occasions\" [occasion]=\"occasion\"></app-occasion>\n</ul>\n\n<button class=\"add-btn\" mat-fab>\n  <mat-icon aria-label=\"Example icon-button with a heart icon\">add</mat-icon>\n</button>\n"
+module.exports = "<h2>Your Splits</h2>\n<ul>\n  <app-occasion *ngFor=\"let occasion of occasions\" [occasion]=\"occasion\"></app-occasion>\n</ul>\n\n<button (click)=\"addNewOccasion()\" class=\"add-btn\" mat-fab>\n  <mat-icon aria-label=\"Example icon-button with a heart icon\">add</mat-icon>\n</button>\n"
 
 /***/ }),
 
@@ -605,7 +654,8 @@ module.exports = "<h2>Your Splits</h2>\n<ul>\n  <app-occasion *ngFor=\"let occas
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OccasionListComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mock_data__ = __webpack_require__("../../../../../src/app/mock-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__occasion_service__ = __webpack_require__("../../../../../src/app/occasion.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -617,11 +667,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var OccasionListComponent = (function () {
-    function OccasionListComponent() {
-        this.occasions = __WEBPACK_IMPORTED_MODULE_1__mock_data__["a" /* OCCASIONS */];
+    function OccasionListComponent(occasionService, router) {
+        this.occasionService = occasionService;
+        this.router = router;
     }
     OccasionListComponent.prototype.ngOnInit = function () {
+        this.getOccasions();
+    };
+    OccasionListComponent.prototype.getOccasions = function () {
+        var _this = this;
+        this.occasionService.getOccasions()
+            .subscribe(function (occasions) { return _this.occasions = occasions; });
+    };
+    OccasionListComponent.prototype.addNewOccasion = function () {
+        //shitty hack because we're using mock data
+        var id = this.occasions.length + 1;
+        //no proper date formatting in javascript in 2017???
+        var currentDate = new Date();
+        var day = currentDate.getDate();
+        var month = currentDate.getMonth() + 1;
+        var year = currentDate.getFullYear();
+        var formattedDate = day + '.' + month + '.' + year;
+        var newOccasion = {
+            id: id,
+            name: 'Enter a name here...',
+            description: 'Enter a description here...',
+            participants: [],
+            totalSpending: 0.00,
+            items: [],
+            transactions: [],
+            date: formattedDate
+        };
+        this.router.navigate(['/detail/' + id]);
+        this.occasions.push(newOccasion);
     };
     OccasionListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -629,7 +709,8 @@ var OccasionListComponent = (function () {
             template: __webpack_require__("../../../../../src/app/occasion-list/occasion-list.component.html"),
             styles: [__webpack_require__("../../../../../src/app/occasion-list/occasion-list.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__occasion_service__["a" /* OccasionService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], OccasionListComponent);
     return OccasionListComponent;
 }());
@@ -724,8 +805,8 @@ module.exports = "<mat-card class=\"occasion-card\">\n  <mat-card-header>\n    <
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OccasionComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__occasion__ = __webpack_require__("../../../../../src/app/occasion.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__occasion_service__ = __webpack_require__("../../../../../src/app/occasion.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__occasion_service__ = __webpack_require__("../../../../../src/app/occasion.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__occasion__ = __webpack_require__("../../../../../src/app/occasion.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -742,23 +823,20 @@ var OccasionComponent = (function () {
     function OccasionComponent(occasionService) {
         this.occasionService = occasionService;
     }
-    OccasionComponent.prototype.getOccasions = function () {
-        var _this = this;
-        this.occasionService.getOccasions()
-            .subscribe(function (occasions) { return _this.occasions = occasions; });
+    OccasionComponent.prototype.ngOnInit = function () {
     };
     OccasionComponent.prototype.deleteOccasion = function (occasion) {
+        var _this = this;
+        this.occasionService.getOccasions().subscribe(function (occasions) { return _this.occasions = occasions; });
+        console.log(this.occasions);
         var index = this.occasions.indexOf(occasion);
         if (index >= 0) {
             this.occasions.splice(index, 1);
         }
     };
-    OccasionComponent.prototype.ngOnInit = function () {
-        this.getOccasions();
-    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__occasion__["a" /* Occasion */])
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__occasion__["a" /* Occasion */])
     ], OccasionComponent.prototype, "occasion", void 0);
     OccasionComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -766,7 +844,7 @@ var OccasionComponent = (function () {
             template: __webpack_require__("../../../../../src/app/occasion/occasion.component.html"),
             styles: [__webpack_require__("../../../../../src/app/occasion/occasion.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__occasion_service__["a" /* OccasionService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__occasion_service__["a" /* OccasionService */]])
     ], OccasionComponent);
     return OccasionComponent;
 }());

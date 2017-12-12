@@ -3,6 +3,6 @@
   <app-occasion *ngFor="let occasion of occasions" [occasion]="occasion"></app-occasion>
 </ul>
 
-<button class="add-btn" mat-fab>
+<button (click)="addNewOccasion()" class="add-btn" mat-fab>
   <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
 </button>

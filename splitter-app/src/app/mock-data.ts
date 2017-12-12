@@ -31,33 +31,83 @@ export const OCCASIONS: Occasion[] = [
     ],
     transactions: [],
     date: '03.05.1014'
+  },
+  {
+    id: 2,
+    name: 'Red Wedding',
+    description: 'They Freys invite the Starks to a Wedding',
+    participants: [
+      {
+        name: 'Robb',
+        credit: 0
+      },
+      {
+        name: 'Catelyn',
+        credit: 0
+      },
+      {
+        name: 'Walder',
+        credit: 600
+      },
+      {
+        name: 'Roose',
+        credit: 66.66
+      }
+    ],
+    totalSpending: 666.66,
+    items: [
+      {
+        name: 'Crossbows',
+        amount: 600.00,
+        payer: { name: 'Walder', credit: 600 }
+      },
+      {
+        name: 'Dagger',
+        amount: 66.66,
+        payer: { name: 'Roose', credit: 66.66 }
+      }
+    ],
+    transactions: [],
+    date: '21.08.1013'
+  },
+  {
+    id: 3,
+    name: 'Hiking Trip in the North',
+    description: 'The boys go on a hiking adventure to catch a zombie',
+    participants:
+    [
+      {
+        name: 'Jon',
+        credit: 800.00
+      },
+      {
+        name: 'Beric',
+        credit: 0
+      },
+      {
+        name: 'Gendry',
+        credit: 200.00
+      },
+      {
+        name: 'Tormund',
+        credit: 0
+      }
+    ],
+    totalSpending: 1000.00,
+    items: [
+      {
+        name: 'Warhammer',
+        amount: 200.00,
+        payer: { name: 'Gendry', credit: 200.00 }
+      },
+      {
+        name: 'Dragonglass',
+        amount: 800.00,
+        payer: { name: 'Jon', credit: 800.00 }
+      }
+    ],
+    transactions: [],
+    date: '04.12.1017'
   }
-  // {
-  //   id: 2,
-  //   name: 'Red Wedding',
-  //   description: 'They Freys invite the Starks to a Wedding',
-  //   participants: [{ name: 'Robb', credit: 10 }, { name: 'Catelyn', credit: 10 }, { name: 'Waldor', credit: 10 }, { name: 'Roose', credit: 10 }],
-  //   totalSpending: 485.32,
-  //   items: [],
-  //   date: '21.08.1013'
-  // },
-  // {
-  //   id: 3,
-  //   name: 'Hiking Trip in the North',
-  //   description: 'The boys go on a hiking adventure to catch a zombie',
-  //   participants: [{ name: 'John', credit: 10 }, { name: 'Beric', credit: 10 }, { name: 'Gendry', credit: 10 }, { name: 'Tormund', credit: 10 }],
-  //   totalSpending: 123.45,
-  //   items: [],
-  //   date: '04.12.1017'
-  // },
-  // {
-  //   id: 4,
-  //   name: 'Fireworks show',
-  //   description: 'Cersei tests Qyburns Wildfire on some ships',
-  //   participants: [{ name: 'Cersei', credit: 10 }, { name: 'Qyburn', credit: 10 }],
-  //   totalSpending: 1731.00,
-  //   items: [],
-  //   date: '12.03.1014'
-  // },
 
 ];

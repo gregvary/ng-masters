@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 exports.i(__webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../material/prebuilt-themes/indigo-pink.css"), "");
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n\nbody {\n  font-family: Roboto;\n  background-color: #d4d4d4;\n  margin: 0;\n}\n.mat-select-value-text{\n  color:whitesmoke;\n}\n.mat-select-arrow{\n  color: whitesmoke;\n}\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n\nbody {\n  font-family: Roboto;\n  background-color: #d4d4d4;\n  margin: 0;\n}\n\n.mat-select-arrow{\n  color: rgba(255,255,255,.87)\n}\n\n.currency-selector-text {\n  color: rgba(255,255,255,.87)\n}\n\n\n.currency-selector > div > div.mat-select-value > span > span {\n  color: rgba(255,255,255,.87)\n}\n", ""]);
 
 // exports
 
