@@ -1,11 +1,9 @@
 .detail-wrapper {
-
   padding: 30px;
 }
 .occasion-form {
   width: 100%;
 }
-
 .item-form-wrapper {
   display: flex;
   margin-bottom: 10px;
@@ -23,7 +21,6 @@
   display: inline-block;
   flex: 1 1 auto;
   justify-content: space-between;
-
 }
 .mat-card {
   margin-bottom: 30px;
