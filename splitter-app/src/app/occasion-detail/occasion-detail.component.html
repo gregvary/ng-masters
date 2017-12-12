@@ -75,7 +75,7 @@
     </div>
   </mat-card>
 
-  <mat-card>
+  <mat-card *ngIf="occasion.transactions.length > 0">
     <mat-list>
       <mat-list-item *ngFor="let transaction of occasion.transactions"> {{transaction.debtor.name}} owes {{transaction.creditor.name}} {{transaction.amount | convertcurrency }} </mat-list-item>
     </mat-list>
